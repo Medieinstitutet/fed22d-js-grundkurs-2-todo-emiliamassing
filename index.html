@@ -9,35 +9,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" type="text/css"/>
     <title>Projekt</title>
-    <script type="module" crossorigin src="/js-template/assets/index.4f5b347a.js"></script>
-    <link rel="stylesheet" href="/js-template/assets/index.5fcc0401.css">
+    <script type="module" crossorigin src="/js-template/assets/index.17514333.js"></script>
+    <link rel="stylesheet" href="/js-template/assets/index.dfff2bd1.css">
   </head>
   <body>
     <main>
       <section>
-        <h1>Att göra lista</h1>
-        <div class="container">
+        <h1>To do list</h1>
+        <div class="btnContainer"> <!--Kom på bättre namn då klassen används för mer än knappar-->
+          <button id="darkModeBtn">Dark Mode</button>
+        </div>
+        <div class="btnContainer">
+          <span>New ToDo</span>
+        </div>
+        <div class="inputContainer">
           <label>
             <input type="text" name="writeItem" id="writeItem">
           </label>
-          <button id="add-item-btn">Lägg till</button>
         </div>
-        <ul>
-          Att göra
-          <li>
-            Starta Datorn
-            <i class="fa-solid fa-pen-to-square fa-lg"></i>
-            <i class="fa-solid fa-x fa-lg"></i>
-          </li>
-          <li>
-            Starta projekt + vs code
-            <i class="fa-solid fa-pen-to-square fa-lg"></i>
-            <i class="fa-solid fa-x fa-lg"></i>
-          </li>
-        </ul>
-        <ul>
-          Avklarat
-        </ul>
+        <div class="btnContainer">
+          <span>Add category</span>
+        </div>
+        <div class="radioInputContainer">
+          <div class="row">
+            <label>
+              <input type="radio" name="important" id="important">
+              <span><i class="fa-solid fa-circle-exclamation category"></i>Important</span>
+            </label>
+            <label>
+              <input type="radio" name="work" id="work">
+              <span><i class="fa-solid fa-briefcase category"></i>Work</span>
+            </label>
+          </div>
+          <div class="row">
+            <label>
+              <input type="radio" name="spareTime" id="spareTime">
+              <span><i class="fa-solid fa-star category"></i>Spare Time</span>
+            </label>
+            <label>
+              <input type="radio" name="household" id="household">
+              <span><i class="fa-solid fa-house category"></i>Household</span>
+            </label>
+          </div>
+        </div>
+        <div class="btnContainer">
+          <button id="addItemBtn">Add ToDo</button>
+        </div>
+        <div class="toDoContainer">
+          <div class="taskBar">
+            <span>To do</span>
+            <select name="sort" id="sort" aria-label="Sortera">
+              <option autofocus value>Sort by:</option>
+              <option value="deadline">Deadline</option>
+              <option value="alfabetic">Alphabetically</option>
+              <option value="newestDate">Date - Newest</option>
+              <option value="oldestDate">Date - Oldest</option>
+            </select>
+          </div>
+          <ul id="incompleteTasks">
+            <li>
+              Start computer
+              <i class="fa-solid fa-pen-to-square fa-lg" tabindex="0"></i>
+              <i class="fa-solid fa-x fa-lg" tabindex="0"></i>
+            </li>
+            <li>
+              Start project + vs code
+              <i class="fa-solid fa-pen-to-square fa-lg" tabindex="0"></i>
+              <i class="fa-solid fa-x fa-lg" tabindex="0"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="toDoContainer">
+          <div class="taskBar"> <!--Kanske ingen optimal lösning men rätt CSS applicerades ej på span annars-->
+            <span>Completed</span>
+          </div>
+          <ul id="completedTasks">
+            <li>Finish HTML-structure</li>
+          </ul>
+        </div>
       </section>
     </main>
 
