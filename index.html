@@ -9,12 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" type="text/css"/>
     <title>Projekt</title>
-    <script type="module" crossorigin src="/js-template/assets/index.17514333.js"></script>
-    <link rel="stylesheet" href="/js-template/assets/index.dfff2bd1.css">
+    <script type="module" crossorigin src="/js-template/assets/index.f73d5df0.js"></script>
+    <link rel="stylesheet" href="/js-template/assets/index.4837b5d3.css">
   </head>
   <body>
     <main>
-      <section>
         <h1>To do list</h1>
         <div class="btnContainer"> <!--Kom på bättre namn då klassen används för mer än knappar-->
           <button id="darkModeBtn">Dark Mode</button>
@@ -23,34 +22,43 @@
           <span>New ToDo</span>
         </div>
         <div class="inputContainer">
-          <label>
-            <input type="text" name="writeItem" id="writeItem">
-          </label>
-        </div>
-        <div class="btnContainer">
-          <span>Add category</span>
-        </div>
-        <div class="radioInputContainer">
-          <div class="row">
+          <div class="formControl">
             <label>
-              <input type="radio" name="important" id="important">
-              <span><i class="fa-solid fa-circle-exclamation category"></i>Important</span>
-            </label>
-            <label>
-              <input type="radio" name="work" id="work">
-              <span><i class="fa-solid fa-briefcase category"></i>Work</span>
+              <input type="text" name="writeItem" id="writeItem" placeholder="Add new task">
+              <i class="fa-regular fa-circle-xmark fa-lg"></i>
+              <small class="toggleHidden">Error Message</small>
             </label>
           </div>
-          <div class="row">
+        </div>
+        <div class="btnContainer">
+          <span class="text">Add Category</span>
+        </div>
+        <div class="radioInputContainer">
+              <label>
+                <input type="radio" name="radio" id="important">
+                <span><i class="fa-solid fa-circle-exclamation category"></i>Important</span>
+              </label>
             <label>
-              <input type="radio" name="spareTime" id="spareTime">
+              <input type="radio" name="radio" id="work">
+              <span><i class="fa-solid fa-briefcase category"></i>Work</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" id="spareTime">
               <span><i class="fa-solid fa-star category"></i>Spare Time</span>
             </label>
             <label>
-              <input type="radio" name="household" id="household">
+              <input type="radio" name="radio" id="household">
               <span><i class="fa-solid fa-house category"></i>Household</span>
             </label>
-          </div>
+        </div>
+        <!--Lägg till att välja deadline här-->
+        <div class="btnContainer">
+          <span class="text">Choose Deadline</span>
+        </div>
+        <div class="inputContainer">
+          <label>
+            <input type="date" name="date" id="date">
+          </label>
         </div>
         <div class="btnContainer">
           <button id="addItemBtn">Add ToDo</button>
@@ -66,18 +74,8 @@
               <option value="oldestDate">Date - Oldest</option>
             </select>
           </div>
-          <ul id="incompleteTasks">
-            <li>
-              Start computer
-              <i class="fa-solid fa-pen-to-square fa-lg" tabindex="0"></i>
-              <i class="fa-solid fa-x fa-lg" tabindex="0"></i>
-            </li>
-            <li>
-              Start project + vs code
-              <i class="fa-solid fa-pen-to-square fa-lg" tabindex="0"></i>
-              <i class="fa-solid fa-x fa-lg" tabindex="0"></i>
-            </li>
-          </ul>
+          
+          <ul id="incompleteTasks"></ul>
         </div>
         <div class="toDoContainer">
           <div class="taskBar"> <!--Kanske ingen optimal lösning men rätt CSS applicerades ej på span annars-->
@@ -87,7 +85,6 @@
             <li>Finish HTML-structure</li>
           </ul>
         </div>
-      </section>
     </main>
 
     <!-- TODO
