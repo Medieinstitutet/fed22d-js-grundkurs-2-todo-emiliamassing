@@ -1,97 +1,76 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- TODO: glöm ej att byta språk här -->
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/js-template/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/ico" href="/js-template/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive To-do list app made with Typescript">
+    <meta property="og:title" content="To-Do list app">
+    <meta property="og:description" content="Responsive To-do list app made with Typescript">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" type="text/css"/>
-    <title>Projekt</title>
-    <script type="module" crossorigin src="/js-template/assets/index.f73d5df0.js"></script>
-    <link rel="stylesheet" href="/js-template/assets/index.4837b5d3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" type="text/css">
+    <title>To-Do list</title>
+    <script type="module" crossorigin src="/js-template/assets/index.86dc1ea2.js"></script>
+    <link rel="stylesheet" href="/js-template/assets/index.3f8f2926.css">
   </head>
   <body>
     <main>
         <h1>To do list</h1>
-        <div class="btnContainer"> <!--Kom på bättre namn då klassen används för mer än knappar-->
+        <div class="btnContainer">
           <button id="darkModeBtn">Dark Mode</button>
         </div>
         <div class="btnContainer">
           <span>New ToDo</span>
         </div>
-        <div class="inputContainer">
-          <div class="formControl">
-            <label>
-              <input type="text" name="writeItem" id="writeItem" placeholder="Add new task">
-              <i class="fa-regular fa-circle-xmark fa-lg"></i>
-              <small class="toggleHidden">Error Message</small>
-            </label>
-          </div>
-        </div>
-        <div class="btnContainer">
-          <span class="text">Add Category</span>
-        </div>
-        <div class="radioInputContainer">
+        <form id="addNewTodo">
+          <div class="inputContainer">
+            <div class="formControl">
               <label>
-                <input type="radio" name="radio" id="important">
-                <span><i class="fa-solid fa-circle-exclamation category"></i>Important</span>
+                <input type="text" name="writeItem" id="writeItem" placeholder="Add new task" required>
+                <i class="errorIcon fa-regular fa-circle-xmark fa-lg"></i>
+                <small class="toggleHidden">Error Message</small>
               </label>
-            <label>
-              <input type="radio" name="radio" id="work">
-              <span><i class="fa-solid fa-briefcase category"></i>Work</span>
-            </label>
-            <label>
-              <input type="radio" name="radio" id="spareTime">
-              <span><i class="fa-solid fa-star category"></i>Spare Time</span>
-            </label>
-            <label>
-              <input type="radio" name="radio" id="household">
-              <span><i class="fa-solid fa-house category"></i>Household</span>
-            </label>
-        </div>
-        <!--Lägg till att välja deadline här-->
-        <div class="btnContainer">
-          <span class="text">Choose Deadline</span>
-        </div>
-        <div class="inputContainer">
-          <label>
-            <input type="date" name="date" id="date">
-          </label>
-        </div>
-        <div class="btnContainer">
-          <button id="addItemBtn">Add ToDo</button>
-        </div>
+            </div>
+          </div>
+          <div class="btnContainer">
+            <span class="text">Choose Deadline</span>
+          </div>
+          <div class="inputContainer">
+            <div class="formControl">
+              <label>
+                <input type="date" name="date" id="date" required>
+                <small class="toggleHidden">Error Message</small>
+              </label>
+            </div>
+          </div>
+          <div class="btnContainer">
+            <button id="addItemBtn">Add ToDo</button>
+          </div>
+        </form>
         <div class="toDoContainer">
           <div class="taskBar">
-            <span>To do</span>
+            <span class="heading">To do</span>
             <select name="sort" id="sort" aria-label="Sortera">
               <option autofocus value>Sort by:</option>
               <option value="deadline">Deadline</option>
               <option value="alfabetic">Alphabetically</option>
-              <option value="newestDate">Date - Newest</option>
-              <option value="oldestDate">Date - Oldest</option>
+              <option value="lastAdded">Last added</option>
+              <option value="oldestDate">First added</option>
             </select>
           </div>
           
           <ul id="incompleteTasks"></ul>
         </div>
         <div class="toDoContainer">
-          <div class="taskBar"> <!--Kanske ingen optimal lösning men rätt CSS applicerades ej på span annars-->
-            <span>Completed</span>
+          <div class="taskBar">
+            <span class="heading">Completed</span>
           </div>
           <ul id="completedTasks">
-            <li>Finish HTML-structure</li>
           </ul>
         </div>
     </main>
-
-    <!-- TODO
-    - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
-    - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
-    - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
-    -->
     
   </body>
 </html>
